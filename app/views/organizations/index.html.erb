@@ -1,0 +1,12 @@
+<h1>Organizations index</h1>
+
+<ul>
+  <% @organizations.each do |organization| %>
+    <li>
+      <%= render organization %>
+      <%= link_to "Delete", organization_path(organization), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New organization", new_organization_path %>
