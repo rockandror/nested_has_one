@@ -5,11 +5,18 @@
 
   <br>
 
-  <div id="nested-legal-representant" class="legal_representant_wrapper">
+  <div id="nested-legal-representants">
     <%= f.fields_for :legal_representant do |legal_representant_attributes| %>
       <%= render 'legal_representants/legal_representant_fields', f: legal_representant_attributes %>
     <% end %>
   </div>
+
+  <%= link_to_add_association "Añadir un representante legal", f, :legal_representant,
+                              partial: "legal_representants/legal_representant_fields",
+                              data: {
+                                association_insertion_node: "#nested-legal-representants",
+                                association_insertion_method: "append"
+                              } if @organization.legal_representant.blank? || @organization.legal_representant.new_record? %>
 
   <br><br>
   <%= f.submit "Save" %>

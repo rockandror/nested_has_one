@@ -1,10 +1,12 @@
-<fieldset>
-  <legend>Representante legal</legend>
-  <%= f.hidden_field :_destroy %>
+<div class="representant">
+  <fieldset>
+    <legend>Representante legal</legend>
+    <%= f.hidden_field :_destroy %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
 
-</fieldset>
+  </fieldset>
 
-<%= link_to_remove_association "Eliminar" ,f , wrapper_class: "legal_representant_wrapper" %>
+  <%= link_to_remove_association "Eliminar" ,f, wrapper_class: "representant" %>
+</div>

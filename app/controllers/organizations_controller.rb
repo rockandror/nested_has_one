@@ -2,12 +2,10 @@ class OrganizationsController < ApplicationController
 
   def new
     @organization = Organization.new
-    @organization.build_legal_representant
   end
 
   def edit
     @organization = Organization.find(params[:id])
-    @organization.build_legal_representant if @organization.legal_representant.blank?
   end
 
   def index
