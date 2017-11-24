@@ -1,3 +1,3 @@
 class LegalRepresentant < ActiveRecord::Base
-  belongs_to :organization, inverse_of: :legal_representant
+  belongs_to :organization
 end

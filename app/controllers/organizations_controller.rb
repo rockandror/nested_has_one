@@ -2,10 +2,12 @@ class OrganizationsController < ApplicationController
 
   def new
     @organization = Organization.new
+    @organization.build_legal_representant
   end
 
   def edit
     @organization = Organization.find(params[:id])
+    @organization.build_legal_representant if @organization.legal_representant.blank?
   end
 
   def index
@@ -43,7 +45,7 @@ class OrganizationsController < ApplicationController
     def organization_params
       params.require(:organization)
             .permit(:name,
-                    legal_representant_attributes: [:name])
+                    legal_representant_attributes: [:name, :_destroy])
     end
 
 end
