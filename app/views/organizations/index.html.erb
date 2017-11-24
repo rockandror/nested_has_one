@@ -1,12 +1,17 @@
 <h1>Organizations index</h1>
 
-<ul>
-  <% @organizations.each do |organization| %>
-    <li>
-      <%= render organization %>
-      <%= link_to "Delete", organization_path(organization), method: :delete %>
-    </li>
-  <% end %>
-</ul>
+<div class="">
+  <ul>
+    <% @organizations.each do |organization| %>
+      <li>
+        <%= render organization %>
+        <%= render organization.legal_representant if organization.legal_representant %>
+        <%= link_to "Delete", organization_path(organization), method: :delete %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<br>
 
 <%= link_to "New organization", new_organization_path %>
